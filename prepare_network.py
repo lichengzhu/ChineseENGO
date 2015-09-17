@@ -18,7 +18,7 @@ def converttxt(networkname):
 	f_new.write(",")
 	f_new.write("receiver")
 	f_new.write(",")
-	f_new.write("count")
+	f_new.write("weight")
 	f_new.write("\n")
 
 	for i in iter(f):  # read line and and write data to the new file
