@@ -64,38 +64,67 @@ def analyzenetwork(networkname, centrality):
 		os.makedirs(outputs)
 
 
-	# draw the network with matplotlib by closeness or betweeness; alternatively one can choose to draw and compare regular networks
-	if str(centrality) == "none": # drawing regular networks
+	# centrality calculation and visualization
+	if str(centrality) == "eigenvector": 
+		# calculating centrality
+		eigenvector = nx.eigenvector_centrality(g)
+		# create a file with nodes sorted by their eigenvector centrality, and save it under the Outputs directory
+		sorted_eigenvector = sorted(eigenvector.items(), key=operator.itemgetter(1), reverse=True)
+		#print sorted_eigenvector, type(sorted_eigenvector)
+		centrality_value_file = path + "/Outputs/" + str(networkname) + '_eigenvector' + '.txt'
+		f_centrality = open(centrality_value_file, 'w')
+		for item in sorted_eigenvector:
+			#print item, type(item)
+			#print item[0], item[1], type(item[0]), type(item[1])
+			f_centrality.write(item[0])
+			f_centrality.write(',')
+			f_centrality.write(str(item[1]))
+			f_centrality.write("\n")
+		f_centrality.close()
+		#print f_centrality
 
-		# calculating related centrality
+		# visualize the network and save it as a .png file under the Pics dictory
+		e = eigenvector
+		#lyt = nx.layout.spring_layout(g) # making sure the node positions are the same
+		nx.draw(g, with_labels=True, node_color='blue', nodelist=e.keys(), node_size=[v * 1000 for v in e.values()], font_size=7)
+
+		filename = "Pics/" + str(networkname) + "_" + str(centrality) + '.png'
+		plt.savefig(filename)
+
+		#return(eigenvector)
+
+	elif str(centrality) == "closeness": 
+		# calculating centrality
+		closeness = nx.closeness_centrality(g)
+		# create a file with nodes sorted by their closeness centrality, and save it under the Outputs directory
+		sorted_closeness = sorted(closeness.items(), key=operator.itemgetter(1), reverse=True)
+		#print sorted_closeness, type(sorted_closeness)
+		centrality_value_file = path + "/Outputs/" + str(networkname) + '_closeness' + '.txt'
+		f_centrality = open(centrality_value_file, 'w')
+		for item in sorted_closeness:
+			#print item, type(item)
+			#print item[0], item[1], type(item[0]), type(item[1])
+			f_centrality.write(item[0])
+			f_centrality.write(',')
+			f_centrality.write(str(item[1]))
+			f_centrality.write("\n")
+		f_centrality.close()
+		#print f_centrality
+
+		# visualize the network and save it as a .png file under the Pics dictory
+		c = closeness
+		#lyt = nx.layout.spring_layout(g) # making sure the node positions are the same
+		nx.draw(g, with_labels=True, node_color='blue', nodelist=c.keys(), node_size=[v * 1000 for v in c.values()], font_size=7)
+
+		filename = "Pics/" + str(networkname) + "_" + str(centrality) + '.png'
+		plt.savefig(filename)
+
+
+		#return(closeness)
+
+	elif str(centrality) == "betweenness": 
+		# calculating centrality
 		betweenness = nx.betweenness_centrality(g)
-		closeness = nx.closeness_centrality(g)
-
-		#lyt = nx.layout.spring_layout(g) # making sure the node positions are the same
-		nx.draw(g, with_labels=True, node_color='blue', font_size=9)
-
-		filename = "Pics/" + str(networkname) + "_" + str(centrality) + '.png'
-		plt.savefig(filename)
-
-		return(betweenness, closeness)
-
-	elif str(centrality) == "closeness": # node size adjusted according to closeness
-		# calculating related centrality
-		closeness = nx.closeness_centrality(g)
-
-		d = closeness
-		#lyt = nx.layout.spring_layout(g) # making sure the node positions are the same
-		nx.draw(g, with_labels=True, node_color='blue', nodelist=d.keys(), node_size=[v * 500 for v in d.values()], font_size=9)
-
-		filename = "Pics/" + str(networkname) + "_" + str(centrality) + '.png'
-		plt.savefig(filename)
-
-
-		return(closeness)
-
-	elif str(centrality) == "betweenness": # node size adjusted according to betweenness
-		# calculating related centrality
-		betweenness = nx.closeness_centrality(g)
 		
 		# create a file with nodes sorted by their betweenness centrality, and save it under the Outputs directory
 		sorted_betweenness = sorted(betweenness.items(), key=operator.itemgetter(1), reverse=True)
@@ -115,9 +144,9 @@ def analyzenetwork(networkname, centrality):
 
 		
 		# visualize the network and save it as a .png file under the Pics dictory
-		z = betweenness
+		b = betweenness
 		#lyt = nx.layout.spring_layout(g) # making sure the node positions are the same
-		nx.draw(g, with_labels=True, node_color='blue', nodelist=z.keys(), node_size=[v * 2000 for v in z.values()], font_size=9)
+		nx.draw(g, with_labels=True, node_color='blue', nodelist=b.keys(), node_size=[v * 6000 for v in b.values()], font_size=7)
 		filename = "Pics/" + str(networkname) + "_" + str(centrality) + '.png'
 		plt.savefig(filename)
 	
