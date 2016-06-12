@@ -1,4 +1,4 @@
-## About the Project
+# About the Project
 
 This project derives from my term project of the class Computing for Social Sciences at the University of Chicago. I later expanded it to serve my master’s thesis. For the thesis, I tried to explore the inter-organizational social networks among Chinese ENGOs (CENGOs), and to theorize the genesis of their organizational structure.
 
@@ -11,7 +11,7 @@ Using the network data, along with other contextualized interview data, I find t
 
 
 
-## How to Read
+# How to Read
 
 There are currently three folders and two scripts involved in this project:
 
@@ -35,7 +35,7 @@ There are currently three folders and two scripts involved in this project:
 
 
 
-## Citation 
+# Credits 
 
 I would like to thank manlius for his help and support. His amazing project, MuxViz, enables me to do complex calculations, mapping and visualization of multiple networks. Please visit his page to appreciate his excellent work: https://github.com/manlius/muxViz.
 
