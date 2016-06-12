@@ -1,5 +1,3 @@
-# Chinese Environmental NGO (CENGO)
-
 # About the Project
 
 This project derives from my term project of the class Computing for Social Sciences at the University of Chicago. I later expanded it to serve my master’s thesis. For the thesis, I tried to explore the inter-organizational social network among Chinese ENGOs, and to theorize the genesis of their organizational structures.
