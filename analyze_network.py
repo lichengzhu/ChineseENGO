@@ -14,7 +14,7 @@ def analyzenetwork(networkname, centrality):
 	"""this function calculates and graphs the network by different centrality measurements, including betweenness and closeness, for selected network"""
 
 	"""
-	Note: this project originally stores all data to a local MySQL database via pymysql. However, this disables researchers other than myself from replicating the analysis. Therefore, in this version, I stopped using database as the method to store and manage data. Following codes are for reference only.
+	Note: this project originally stores all data to a local MySQL database via pymysql. However, this disables other researchers from replicating the analysis. Therefore, in this version, I stopped using database as the method to store and manage data. Following code is for reference only.
 	"""
 
 	#networkname = str(networkname)
