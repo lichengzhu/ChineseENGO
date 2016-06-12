@@ -14,20 +14,22 @@ Using the network data, along with other contextualized interview data, I find t
 
 There are currently three folders and two scripts involved in this project:
 
-##### prepare_network.py   
-This script converts text from .txt to .csv format for the convenience of analysis
+<dl>
+	<dt>##### prepare_network.py</dt>   
+	<dd>This script converts text from .txt to .csv format for the convenience of analysis<dd>
 
-##### analyze_network.py   
-This script calculates related centrality measures of targeted networks and draw graphics for the purpose of research
+	<dt>##### analyze_network.py</dt>
+	<dd>This script calculates related centrality measures of targeted networks and draw graphics for the purpose of research</dd>
 
-##### Data Folder
-This folder stores raw relational data among CENGOs
+	<dt>##### Data Folder</dt>
+	<dd>This folder stores raw relational data among CENGOs</dd>
 
-##### Outputs Folder
-This folder stores outputs of centrality measures of four networks. The data was later used in the paper for explanatory and theorizing purposes.
+	<dt>##### Outputs Folder</dt>
+	<dd>This folder stores outputs of centrality measures of four networks. The data was later used in the paper for explanatory and theorizing purposes.</dd>
 
-##### Pics Folder
-This folder stores graphs of four networks.
+	<dt>##### Pics Folder</dt>
+	<dd>This folder stores graphs of four networks.</dd>
+</dl>
 
 
 
